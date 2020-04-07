@@ -167,7 +167,7 @@ evo.directive('listingMaps', function() {
 				  var locations = [];
 				  _.each(listings, function(listing) {
 					locations.push([ locationData('single-property-page-1.html','$275,000','$520 / sq ft','images/listing-01.jpg','Eagle Apartmets',"9364 School St. Lynchburg, NY "), 40.7427837, -73.11445617675781, 1, markerIcon ]);
-					locations.push([ locationData('','$275,000','$520 / sq ft','http://assets.utahrealestate.com/photos/640x480/' + listing.image,listing.subdivision ? listing.subdivision : (listing.style ? listing.style : (listing.proptype ? listing.proptype : listing.street)),(listing.city && listing.state ? listing.city + ', ' + listing.state : '') + ' ' + (listing.zip ? listing.zip : '')), listing.latitude, listing.longitude, 1, markerIcon ]);
+					//locations.push([ locationData('','$275,000','$520 / sq ft','http://assets.utahrealestate.com/photos/640x480/' + listing.image,listing.subdivision ? listing.subdivision : (listing.style ? listing.style : (listing.proptype ? listing.proptype : listing.street)),(listing.city && listing.state ? listing.city + ', ' + listing.state : '') + ' ' + (listing.zip ? listing.zip : '')), listing.latitude, listing.longitude, 1, markerIcon ]);
 				  });
 
 				//   var locations = [

@@ -1,7 +1,7 @@
 {
   "name": "evolutionrealestate",
   "private": true,
-  "version": "0.0.0",
+  "version": "13.9.0",
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
