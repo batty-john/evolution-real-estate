@@ -1,0 +1,107 @@
+<main id="content" class="isotope-wrapper">
+	<section class="pt pb-medium rollover effect-zoe" style="background:white">
+		<div class="container">
+			<div class="row" style="margin-top:10px; margin-bottom:30px">
+				<% if(typeof posts !== 'undefined' && posts[0]) { %>
+				<% let p = posts[0] %>
+				<div class="col-md-8">
+
+					<div class="primary-article">
+
+						<div class="article-container" style="background-image: url(<%= p.featured_media_url ? p.featured_media_url : 'http://gomez-gracia.com/wp-content/uploads/2014/06/post-text-only.png' %>); background-position: center center; background-size: 120%;">
+							<div class="hp-article-info">
+								<!--<div class="hp-cat">-->
+								<!--<a data-tooltip="See all posts related to Web Design" class="hp-category" href="https://www.webdesignerdepot.com/category/web-design-3/">Web Design</a>-->
+								<!--</div>-->
+								<h2 class="hp-article-title">
+									<a href="/blog/post/<%= p.slug %>"><%- p.title.rendered %></a>
+								</h2>
+								<div class="hp-excerpt"><%- p.excerpt.rendered %></div>
+								<!--<div class="hp-post-pub-info">-->
+								<!--<a data-tooltip="See all posts by Ezequiel Bruni" class="haa-lnk" href="/author/Ezequiel-Bruni">-->
+								<!--<img src="https://www.gravatar.com/avatar/b80ad5dc88c78f27fd74a33196f55479?s=48" alt="Ezequiel Bruni" class="hpppi-author-avatar">-->
+								<!--</a>-->
+								<!--<span class="hpppi-author">-->
+								<!--By <a data-tooltip="See all posts by Ezequiel Bruni" href="/author/Ezequiel-Bruni">Ezequiel Bruni</a>-->
+								<!--</span>-->
+								<!--<span class="hpppi-separator">•</span>-->
+								<!--<span class="hppi-time">-->
+								<!--<span class="icon-clock-1"></span> 11 hrs ago-->
+								<!--</span>-->
+
+								<!--<span class="hpppi-separator">•</span>-->
+
+
+								<!--<span class="hp-inline-shr">-->
+								<!--<span class="hpsi-row">-->
+								<!--<a class="icon-facebook" href="javascript:void(0);" data-url="https://www.webdesignerdepot.com/2017/11/6-ways-to-design-for-anger/" data-href="https://www.webdesignerdepot.com/2017/11/6-ways-to-design-for-anger/" data-title="6 Ways to Design for Anger" onclick="openFbShare(this)"></a>-->
+								<!--</span>-->
+								<!--<span class="hpsi-row">-->
+								<!--<a class="icon-twitter" data-via="www.webdesignerdepot.com" onclick="return openTwShare(this);" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.webdesignerdepot.com%2F&amp;via=designerdepot&amp;text=6+Ways+to+Design+for+Anger&amp;source=tweetbutton&amp;url=https://www.webdesignerdepot.com/2017/11/6-ways-to-design-for-anger/" target="_blank"></a>-->
+								<!--</span>-->
+								<!--</span>-->
+								<!--</div>-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<% } %>
+				<div class="col-md-4">
+					<% for(let p of posts.slice(1, 3)) { %>
+					<article class="secondary-article">
+						<div class="article-container" style="background-image: url(<%= p.featured_media_url ? p.featured_media_url : 'http://gomez-gracia.com/wp-content/uploads/2014/06/post-text-only.png' %>); background-position: center center; background-size: 120%;">
+							<div class="hp-article-info">
+								<!--<div class="hp-cat">-->
+								<!--<a data-tooltip="See all posts related to Web Design" class="hp-category" href="https://www.webdesignerdepot.com/category/web-design-3/">Web Design</a>-->
+								<!--</div>-->
+								<h2 class="hp-article-title">
+									<a href="/blog/post/<%= p.slug %>" class="anim-link"><%- p.title.rendered %></a>
+								</h2>
+								<div class="hp-excerpt"><%- p.excerpt.rendered %></div>
+								<!--<div class="hp-post-pub-info">-->
+								<!--<a data-tooltip="See all posts by Ezequiel Bruni" class="haa-lnk" href="/author/Ezequiel-Bruni">-->
+								<!--<img src="https://www.gravatar.com/avatar/b80ad5dc88c78f27fd74a33196f55479?s=48" alt="Ezequiel Bruni" class="hpppi-author-avatar">-->
+								<!--</a>-->
+								<!--<span class="hpppi-author">-->
+								<!--By <a data-tooltip="See all posts by Ezequiel Bruni" href="/author/Ezequiel-Bruni">Ezequiel Bruni</a>-->
+								<!--</span>-->
+								<!--<span class="hpppi-separator">•</span>-->
+								<!--<span class="hppi-time">-->
+								<!--<span class="icon-clock-1"></span> 11 hrs ago-->
+								<!--</span>-->
+
+								<!--<span class="hpppi-separator">•</span>-->
+
+
+								<!--<span class="hp-inline-shr">-->
+								<!--<span class="hpsi-row">-->
+								<!--<a class="icon-facebook" href="javascript:void(0);" data-url="https://www.webdesignerdepot.com/2017/11/6-ways-to-design-for-anger/" data-href="https://www.webdesignerdepot.com/2017/11/6-ways-to-design-for-anger/" data-title="6 Ways to Design for Anger" onclick="openFbShare(this)"></a>-->
+								<!--</span>-->
+								<!--<span class="hpsi-row">-->
+								<!--<a class="icon-twitter" data-via="www.webdesignerdepot.com" onclick="return openTwShare(this);" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.webdesignerdepot.com%2F&amp;via=designerdepot&amp;text=6+Ways+to+Design+for+Anger&amp;source=tweetbutton&amp;url=https://www.webdesignerdepot.com/2017/11/6-ways-to-design-for-anger/" target="_blank"></a>-->
+								<!--</span>-->
+								<!--</span>-->
+								<!--</div>-->
+							</div>
+						</div>
+					</article>
+					<% } %>
+				</div>
+			</div>
+
+			<div class="row" style="margin-top:10px; margin-bottom:30px">
+				<% for(let p of posts) { %>
+
+				<a href="/blog/post/<%= p.slug %>"></a>
+				<div class="col-xs-12 col-lg-12 blog-list-item" style="margin-bottom: 5px">
+					<div class="col-xs-3" style="height:150px; width: 150px; background-image: url(<%= p.featured_media_url ? p.featured_media_url : 'http://gomez-gracia.com/wp-content/uploads/2014/06/post-text-only.png' %>); background-position: center center; border-radius: 100px;	background-size: 130% 100%; box-shadow: inset -2px -5px 20px 1px black;"></div>
+					<div class="col-xs-8">
+						<h3><a href="/blog/post/<%= p.slug %>"><%- p.title.rendered %></a></h3>
+						<p><%- p.excerpt.rendered %></p>
+					</div>
+				</div>
+				<% } %>
+			</div>
+		</div>
+	</section>
+</main>

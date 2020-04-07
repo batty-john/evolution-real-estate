@@ -1,0 +1,134 @@
+#header {
+    padding: 10px 0 10px 0;
+}
+
+#logo {
+	margin-bottom: -11px;
+}
+
+#logo img {
+    max-height: 52px;
+    max-height: 55px;
+    margin-top: -5px;
+
+}
+
+#logo span {
+	display: block;
+	margin-top: -5px;
+	font-size: .9em;
+	color: #868686;
+}
+
+#navigation {
+    position: relative;
+    display: block;
+    margin-top: 4px;
+}
+
+#navigation.style-1 .current {
+	border: 0px solid #ff9423;
+}
+
+.no-top-label .search-type {
+    display: none;
+}
+
+ul.top-bar-menu {
+    padding: 0px 0;
+}
+
+.agent .social-icons li a, #footer .social-icons li a, #top-bar .social-icons li a {
+    width: 45px;
+    height: 27px;
+}
+
+.agent .social-icons li a i, .agent .social-icons li a:before, #footer .social-icons li a i, #footer .social-icons li a:before, #top-bar .social-icons li a i, #top-bar .social-icons li a:before {
+    margin-top: 36%;
+}
+
+.top-bar-dropdown .options {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    margin: 7px 0 0 0;
+    z-index: 1101;
+    transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+    transform: translate3d(0,15px,0);
+    border-radius: 3px;
+}
+
+section.fullwidth.special {
+    width: 100%;
+    display: block;
+    position: relative;
+    padding: 0px 0;
+    margin: 0px 0;
+    background-color: #f7f7f7;
+}
+
+.icon-box-1 h3 {
+	margin-top:5px;
+}
+
+.main-search-box {
+    background-color: rgba(255, 255, 255, 0.35);;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.12);
+    padding: 30px;
+    padding-bottom: 20px;
+    margin-top: -9px;
+    border-radius: 3px;
+}
+
+/* .badge-container {
+    position: absolute;
+    float: right;
+    top: 10px;
+    right: 10px;
+    width: 100%;
+    height: 50px;
+}
+
+.listing-badges span {
+	color: #fff;
+    display: inline-block;
+    padding: 1px 8px;
+    float: right;
+    background-color: rgba(74,74,76,0.7);
+    border-radius: 3px;
+} */
+
+.listing-badges .shortsale {
+	background-color:rgba(126, 49, 210, 0.7);
+}
+.listing-badges .featured {
+	background-color:rgba(49, 210, 148, 0.7);
+}
+.listing-badges .sold {
+	background-color:rgba(210, 49, 57, 0.7);
+}
+
+.property-badge.forsale {
+	background-color:rgb(68, 68, 68) !important
+}
+.property-badge.shortsale {
+	background-color:rgb(126, 49, 210) !important
+}
+.property-badge.sold {
+	background-color:rgb(210, 49, 57) !important
+}
+
+.thankyou-message {
+	color: #ff8913;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+}
+
+a.article {
+	display: block;
+}
+
+#jPanelMenu-menu {
+	background:#262626;
+}

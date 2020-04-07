@@ -1,0 +1,32 @@
+<!-- Banner
+================================================== -->
+<div class="parallax" data-background="<%= data.featured_image ? data.featured_image : 'http://gomez-gracia.com/wp-content/uploads/2014/06/post-text-only.png' %>" data-color="#36383e" data-color-opacity="0.45" data-img-width="2500" data-img-height="1600">
+	<div class="parallax-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Main Search Container -->
+					<div class="main-search-container">
+						<h1 style="font-size: 3.4em; text-shadow: 3px 2px 16px #000000;"><%= data.title %></h1>
+
+					</div>
+					<!-- Main Search Container / End -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<main id="content" class="isotope-wrapper">
+	<section class="pt pb-medium rollover effect-zoe" style="background:white">
+		<div class="container">
+			<div class="row" style="margin-top:10px; margin-bottom:30px">
+				<div class="col-xs-12 blog-entry">
+					<h1><%- data.title %></h1>
+					<%- data.content %>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

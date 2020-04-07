@@ -1,0 +1,221 @@
+<% if(typeof listing !== 'undefined') { %>
+
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="property-titlebar margin-bottom-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<a href="javascript:void(0)" onClick="window.history.back()" class="back-to-listings"></a>
+				<div class="property-title">
+					<h2><%= listing.subdivision ? listing.subdivision : (listing.style ? listing.style : (listing.proptype ? listing.proptype : listing.street)) %> <span class="property-badge <%= listing.status === 'Under Contract' ? 'sold' : (listing.shortsale ? 'shortsale' : 'forsale') %>"><%= listing.status === 'Under Contract' ? 'SOLD!' : (listing.shortsale ? 'Short Sale' : 'For Sale')  %></span></h2>
+					<span>
+						<a href="#location" class="listing-address">
+							<i class="fa fa-map-marker"></i>
+							<%= (listing.city && listing.state ? listing.city + ', ' + listing.state : '') + ' ' + listing.zip ? listing.zip : '' %>
+						</a>
+					</span>
+				</div>
+
+				<div class="property-pricing">
+					<div><%= libs.accounting.formatMoney(listing.listprice) %></div>
+					<div class="sub-price"><%= libs.accounting.formatMoney(listing.listprice / listing.totsqf) %> / sq ft</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="container" data-ng-app="app" data-ng-controller="NgListingController">
+	<div class="row margin-bottom-50">
+		<div class="col-md-12">
+
+			<!-- Slider Container -->
+			<div class="property-slider-container">
+
+				<!-- Agent Widget -->
+				<div class="agent-widget">
+					<div id="agent-widget-container">
+						<div class="agent-title">
+							<div class="agent-photo"><img src="/images/realtor-icon.png" style="opacity:.5" alt="" /></div>
+							<div class="agent-details">
+								<!--<h4><a href="#"><%= listing.agtfirst + ' ' + listing.agtlast %></a></h4>-->
+								<h4>Contact us about this property</h4>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+
+						<input type="text" id="Email" placeholder="Your Email" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$">
+						<input type="text" id="Phone" placeholder="Your Phone">
+						<input type="text" id="PropertyID" placeholder="Property ID" disabled value="<%= listing.listno %>">
+						<textarea id="Message">I'm interested in this property [ID <%= listing.listno %>] and I'd like to know more details.</textarea>
+						<button id="sendMessage" class="button fullwidth margin-top-5">Send Message</button>
+					</div>
+					<div id="success-widget-container" class="thankyou-message" style="display:none">
+						THANK YOU!<br>We got your message.
+					</div>
+				</div>
+				<!-- Agent Widget / End -->
+
+				<!-- Slider -->
+				<div class="property-slider no-arrows">
+					<% photos.map(function(photo) { %>
+						<% if (photo.type === 'location') { %>
+							<a href="<%= photo.headerInfo.location %>" data-background-image="<%= photo.headerInfo.location %>" class="item mfp-gallery"></a>
+						<% } %>
+					<% }) %>
+				</div>
+				<!-- Slider / End -->
+
+			</div>
+			<!-- Slider Container / End -->
+
+			<!-- Slider Thumbs -->
+			<div class="property-slider-nav">
+				<% photos.map(function(photo) { %>
+					<% if (photo.type === 'location') { %>
+						<div class="item"><img src="<%= photo.headerInfo.location %>" alt=""></div>
+					<% } %>
+				<% }) %>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+
+		<!-- Property Description -->
+		<div class="col-lg-8 col-md-7">
+			<div class="property-description">
+
+				<!-- Main Features -->
+				<ul class="property-main-features">
+					<li>Area <span><%= listing.totsqf %></span></li>
+					<li>Bedrooms <span><%= listing.totbed %></span></li>
+					<li>Bathrooms <span><%= listing.totbath %></span></li>
+					<li>Acres <span><%= listing.dimacres %></span></li>
+				</ul>
+
+
+				<!-- Description -->
+				<h3 class="desc-headline">Description</h3>
+				<div class="show-more">
+					<p>
+						<%= listing.publicremarks %>
+					</p>
+
+					<p>
+						<h4>Lot Facts</h4>
+						<%= listing.lotfacts %>
+					</p>
+
+					<a href="#" class="show-more-button">Show More <i class="fa fa-angle-down"></i></a>
+				</div>
+
+				<!-- Details -->
+				<h3 class="desc-headline">Details</h3>
+				<ul class="property-features margin-top-0">
+					<li>Water: <span><%= listing.water %></span></li>
+					<li>Cooling: <span><%= listing.aircon %></span></li>
+					<li>Heating: <span><%= listing.heating %></span></li>
+					<li>Storage: <span><%= listing.storage %></span></li>
+					<li>Basement: <span><%= listing.basement %></span></li>
+					<li>Driveway: <span><%= listing.driveway %></span></li>
+					<li>School District: <span><%= listing.schooldistrict %></span></li>
+					<li>Elementary School: <span><%= listing.schoolelem %></span></li>
+					<li>Junior High: <span><%= listing.schooljunior %></span></li>
+					<li>High School: <span><%= listing.schoolsenior %></span></li>
+					<li>Year Built: <span><%= listing.yearblt %></span></li>
+
+					<li>Parking: <span><%= listing.garage %></span></li>
+					<li>Landscape: <span><%= listing.landscape %></span></li>
+					<li>Utilities: <span><%= listing.utilities %></span></li>
+					<li>Area: <span><%= listing.area %></span></li>
+				</ul>
+
+
+				<!-- Features -->
+				<h3 class="desc-headline">Features</h3>
+				<ul class="property-features checkboxes margin-top-0">
+					<% if(listing.haspool && listing.haspool !== '0') { %> <li>Swimming Pool</li> <% } %>
+					<% if(listing.hasspa && listing.hasspa !== '0') { %> <li>Span/Hottub</li> <% } %>
+					<% if(listing.patio && listing.patio !== '0') { %> <li>Patio</li> <% } %>
+					<% if(listing.deck && listing.deck !== '0') { %> <li>Deck</li> <% } %>
+					<% if(listing.hascommunitypool && listing.hascommunitypool !== '0') { %> <li>Community Pool</li> <% } %>
+					<% if(listing.totlaundry && listing.totlaundry !== '0') { %> <li>Laundry Room</li> <% } %>
+					<% if(listing.watershares && listing.watershares !== '0') { %> <li>Water Shares</li> <% } %>
+				</ul>
+
+
+				<!-- Location -->
+				<h3 class="desc-headline no-border" id="location">Location</h3>
+				<div id="propertyMap-container">
+					<div id="propertyMap" data-latitude="<%= listing.latitude %>" data-longitude="<%= listing.longitude %>"></div>
+				</div>
+
+			</div>
+		</div>
+		<!-- Property Description / End -->
+
+
+		<!-- Sidebar -->
+		<div class="col-lg-4 col-md-5">
+			<div class="sidebar sticky right">
+
+				<!-- Widget -->
+				<div class="widget margin-bottom-35">
+					<!-- <button class="widget-button save" data-save-title="Save" data-saved-title="Saved"><span class="like-icon"></span></button> -->
+				</div>
+				<!-- Widget / End -->
+
+			</div>
+		</div>
+		<!-- Sidebar / End -->
+
+	</div>
+</div>
+<% } %>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyD1be3c_xffCbRmnThGCBaPnpdbU0toZNg&amp;sensor=false&amp;language=en"></script>
+<script type="text/javascript" src="/scripts/maps.js"></script>
+
+<script>
+	(function($) {
+		$(document).ready(function() {
+			$('#sendMessage').click(function() {
+				debugger;
+				var body = {
+					Email: $('#Email').val(),
+					Phone: $('#Phone').val(),
+					PropertyID: $('#PropertyID').val(),
+					Message: $('#Message').val()
+				};
+
+				$.ajax({
+					type: 'POST',
+					contentType: 'application/json',
+					url: '/contact/ajaxForm',
+					data: JSON.stringify(body)
+				}).done(function(data) {
+					$('#agent-widget-container').slideUp();
+					$('#success-widget-container').slideDown();
+					setTimeout(function() {
+
+						$('.agent-widget').fadeOut();
+					}, 3000);
+				}).fail(function(err, error) {
+					debugger;
+				});
+			});
+		})
+	})(jQuery);
+</script>

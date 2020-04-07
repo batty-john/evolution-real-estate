@@ -1,0 +1,185 @@
+<!-- Banner
+================================================== -->
+<div id="top-parallax" class="parallax" data-background="/img/top/home-with-pretty-yard.jpg" data-color="#36383e" data-color-opacity="0.45" data-img-width="2500" data-img-height="1600">
+    <div class="parallax-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Main Search Container -->
+                    <div class="main-search-container">
+                        <h1><%= h1Header %></h1>
+                        <!-- Main Search -->
+                        <form class="main-search-form no-top-label">
+                            <!-- Type -->
+                            <div class="search-type">
+                                <label class="active">
+                                    <input class="first-tab" name="tab" checked="checked" type="radio">
+                                </label>
+                                <!-- <div class="search-type-arrow"></div> -->
+                            </div>
+                            <!-- Box -->
+                            <div class="main-search-box">
+                                <!-- Main Search Input -->
+                                <div class="main-search-input larger-input">
+                                    <input id="search-query" type="text" class="ico-01" placeholder="Enter address, city, zip, or MLS#" />
+                                    <a href="javascript:void(0)" id="findButton" class="button" style="padding: 14px 20px;"><i class="fa fa-search"></i> Find</a>
+                                </div>
+                            </div>
+                            <!-- Box / End -->
+                        </form>
+                        <!-- Main Search -->
+                    </div>
+                    <!-- Main Search Container / End -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="fullwidth special" style="background: transparent; margin-top: -6em; z-index: 99;">
+    <!-- Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <!-- Icon Box -->
+                <div class="icon-box-1">
+                    <div class="icon-container">
+                        <i class="fa fa-thumbs-up"></i>
+                        <div class="icon-links small">
+                            <a href="https://myaccount.guildmortgage.com/officers/brettreynolds/apply-online/?v=2" target="_blank">Guild Mortgage Prequal</a>
+							<a href="https://6433505249.mortgage-application.net/WebApp/ShortApp.aspx" target="_blank">Major Mortgage Prequal</a>
+                        </div>
+                    </div>
+                    <h3>Prequal</h3>
+                    <p>Questions about getting a loan for your home in Vernal or surrounding areas? Let us put you in contact with lending professionals who will take care of you and make sure you have every option available to you to assist in getting your home loan in Vernal. Links to a couple local lenders and getting a pre-qaul only takes a few minutes of your time.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- Icon Box -->
+                <div class="icon-box-1">
+                    <div class="icon-container">
+                        <i style="margin-left:15px" class="fa fa-play"></i>
+                        <div class="icon-links">
+                            <a href="#">LATEST VIDEO</a>
+                        </div>
+                    </div>
+                    <h3>Video of the Week</h3>
+                    <p>Looking for a walk through of a great home for sale in Vernal? Maybe you just need a little motivation during your day? Maybe you have some questions about real estate in Vernal? Take a look and see what Evolution is talking about now!</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- Icon Box -->
+                <div class="icon-box-1">
+                    <div class="icon-container">
+                        <i class="fa fa-money"></i>
+                        <div class="icon-links">
+                            <a href="/properties/shortsales">Bank Owned Properties</a>
+                        </div>
+                    </div>
+                    <h3>Bank Owned/Investors</h3>
+                    <p>Evolution Real Estate has extensive experience working with investors on bank owned properties in Vernal and throughout Utah. There are also bank owned or short sale properties that would work for owner occupants who are not scared of a few projects. Take a look at bank owned homes for sale in Vernal and surrounding areas here.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- Icon Box -->
+                <div class="icon-box-1">
+                    <div class="icon-container">
+                        <i class="fa fa-share-alt-square"></i>
+                        <div class="icon-links">
+                            <a href="https://www.facebook.com/jeremypeterson007">Facebook</a>
+                            <a href="https://www.instagram.com/evolution_real_estate">Instagram</a>
+                        </div>
+                    </div>
+                    <h3>We Are Social</h3>
+                    <p>Evolution uses all of your favorite social media sites.  Make sure and follow us to always stay up to date on whats going on in the Vernal real estate market.  Evolution also frequently posts some REALLY GOOD deals on homes for sale in Vernal that you don't want to miss!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Flip banner -->
+<a href="/properties" class="flip-banner parallax" data-background="images/flip-banner-bg.jpg" data-color="rgb(255, 106, 0)" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600" style="background-position: 50% 700px">
+    <div class="flip-banner-content">
+        <h2 class="flip-visible">We help people and homes find each other</h2>
+        <h2 class="flip-hidden">Browse Properties <i class="sl sl-icon-arrow-right"></i></h2>
+    </div>
+</a>
+<!-- Flip banner / End -->
+<script>
+$(document).ready(function() {
+    $('.moreSearchOptions').click(function() {
+        debugger;
+        $('#modalMoreSearchOptions').modal('show');
+    });
+
+    $(".slider").not('.slick-initialized').slick({
+        autoplay: true,
+        dots: true,
+        responsive: [{
+            breakpoint: 500,
+            settings: {
+                dots: false,
+                arrows: false,
+                infinite: false,
+                slidesToShow: 2,
+                slidesToScroll: 2
+            }
+        }]
+	});
+
+	$('#findButton').click(function() {
+		debugger;
+		var val = $('#search-query').val();
+		if(val) {
+			window.location.href = 'properties?search=' + val;
+		}
+	});
+
+	function rotateImages(images, index) {
+		if(index > (images.length - 1)) index = 0;
+		$('#top-parallax').fadeTo('slow', 0.5, function() {
+			$(this).css('background-image', 'url(' + images[index] + ')');
+		}).fadeTo('slow', 1, function() {
+			setTimeout(function() {
+				rotateImages(images, ++index)
+			}, 6000);
+		})
+	}
+	function shuffle(array) {
+		var currentIndex = array.length, temporaryValue, randomIndex;
+
+		// While there remain elements to shuffle...
+		while (0 !== currentIndex) {
+
+			// Pick a remaining element...
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
+
+			// And swap it with the current element.
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}
+
+		return array;
+	}
+
+	// load in featured properties
+	var url = '/properties/get?offset=0&category=featured';
+	$.ajax({
+		contentType: 'application/json',
+		url: url
+	}).done(function(properties) {
+		debugger;
+		if(properties && properties.length > 0) {
+			var images = properties.map(function(property) {
+				return 'http://assets.utahrealestate.com/photos/1024x768/' + property.image;
+			})
+
+			rotateImages(shuffle(images), 0);
+		}
+	}).fail(function(err) {
+		// do nothing
+	});
+});
+</script>
