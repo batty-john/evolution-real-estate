@@ -10,7 +10,7 @@
     "express-useragent": "^1.0.8",
     "fs": "0.0.1-security",
     "google-auth-library": "^0.11.0",
-    "googleapis": "^22.2.0",
+    "googleapis": "^39.1.0",
     "grunt": "0.4.5",
     "grunt-contrib-clean": "0.6.0",
     "grunt-contrib-coffee": "0.13.0",
